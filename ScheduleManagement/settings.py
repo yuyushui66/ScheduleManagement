@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'SMDB',
         'USER': 'root',
-        'PASSWORD': 'Smdb1234',
+        'PASSWORD': '',
         'HOST': 'bj-cynosdbmysql-grp-6afbmg9m.sql.tencentcdb.com',
         'PORT': '24356'
     }
