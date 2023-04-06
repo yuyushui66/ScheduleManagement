@@ -25,3 +25,10 @@ def login(request):
         return render(request, 'login.html')
     else:
         return render(request, 'login.html')
+
+def index(request):
+    if request.method == 'GET':
+        return render(request, 'index.html') # 以GEt方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
+    else : # 以POST形式进行响应，就是前端网页中的对应位置的数据会被放置在POST中，以map的形式
+        return render(request, 'index.html')
+
