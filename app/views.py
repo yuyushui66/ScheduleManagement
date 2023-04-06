@@ -1,3 +1,10 @@
+'''
+Date: 2023-04-03 14:23:14
+LastEditors: MrZ2001 735108298@qq.com
+LastEditTime: 2023-04-03 14:47:53
+FilePath: \ScheduleManagement\app\views.py
+Description: 
+'''
 import json
 import random
 from django.shortcuts import render, redirect, HttpResponse
@@ -11,10 +18,10 @@ import sys
 from app import models
 from datetime import datetime
 
-@csrf_exempt
 
+@csrf_exempt
 def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
-    else :
+    else:
         return render(request, 'login.html')
