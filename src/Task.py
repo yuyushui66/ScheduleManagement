@@ -35,7 +35,7 @@ class Task:
         self.taskPriority = 100  # 0 for highest
         self.taskStatus = TaskStatus.NULL  # enum(TaskStatus)
         self.repetitive = False  # boolean
-        self.repeatPattern =
+        self.repeatPattern = "" # temporarily String, decide later.
         self.needReminding = False  # boolean
         self.remindDateTime = datetime.datetime.now()  # datetime
 
