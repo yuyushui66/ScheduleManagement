@@ -32,9 +32,13 @@ def login(request):
         pwd = request.POST.get("password")
         is_keep = request.POST.get("Field")
         print(username, pwd, is_keep)
+        
         # 此处应该判断密码及用户在数据库中是否有匹配的项，若有则执行下面语句index.html，若无login.html
-
-        return render(request, 'index.html')
+        # if username in mysql and pwd in mysql:
+        if username == 123 and pwd == 123:
+            return render(request, 'index.html')
+        else:
+            return render(request, "login.html", {"error_msg": "用户名或密码错误"})
 
 @csrf_exempt
 def signup(request):
