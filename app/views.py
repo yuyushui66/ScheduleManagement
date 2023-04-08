@@ -25,7 +25,14 @@ def login(request):
         return render(request, 'login.html')
     else:
         return render(request, 'login.html')
-
+    
+def signup(request):
+    if request.method == 'GET':
+        return render(request, 'signup.html')
+        # return HttpResponse("欢迎使用")
+    else:
+        return render(request, 'signup.html')
+    
 def index(request):
     if request.method == 'GET':
         return render(request, 'index.html') # 以GET方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
