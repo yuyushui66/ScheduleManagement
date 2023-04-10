@@ -5,7 +5,7 @@ from itertools import count
 class TaskList:
     taskListCounter = count(0)
 
-    def __init__(self):
+    def __init__(self, _taskListName: str = None, _taskListDescribe: str = None):
         self.taskListID = next(TaskList.taskListCounter)  # int, primary key for a task list
         self.taskList = []  # list of Tasks
         self.taskListView = []  # list of Tasks sorted
@@ -72,7 +72,7 @@ class TaskList:
         for task in self.taskListView:
             print(task.taskName, end=" ")
 
-    #modify a task using kwargs
+    # modify a task using kwargs
     def modifyTask(self, taskID: int, **kwargs):
         for key, value in kwargs.items():
             if key == "taskName":

@@ -17,10 +17,10 @@ class UserStatus(Enum):
 class User:
     UserIDCounter = count(0)
 
-    def __init__(self, _name: str = "User", _email: str = "", _avatar: str = "",
+    def __init__(self, _id: int, _name: str = "User", _email: str = "", _avatar: str = "",
                  _password: str = hashlib.sha224("000000"),
                  _status=UserStatus.LOGGED_OUT):
-        self.id = next(User.UserIDCounter)
+        self.id = _id
         self.name = _name
         self.email = _email
         self.avatar = _avatar

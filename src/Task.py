@@ -12,8 +12,8 @@ class TaskStatus(Enum):
     ABANDONED = 4
     NULL = 5
 
-#TODO: add repeat pattern
 
+# TODO: function -> Task.repeat()
 
 
 class Task:
@@ -23,20 +23,22 @@ class Task:
     def readCategories():
         return dict()  # dict<int, str>
 
-    def __init__(self):
+    def __init__(self, _taskName: str = '', _taskDescribe: str = '', _taskCategory: int = 0, _taskPriority: int = 100,
+                 _taskStatus: TaskStatus = TaskStatus.NULL, _repetitive: bool = False, _repeatPattern: str = None,
+                 _needReminding: bool = False, _remindDateTime: datetime = False):
         self.taskCategories = Task.readCategories()  # dict<int,str>
         self.taskID = next(Task._instanceCounter)  # int, primary key for a task
-        self.taskName = ""  # str
-        self.taskDescribe = ""  # str
-        self.taskCategory = 0  # int, show by dict<int, string>(i)
+        self.taskName = _taskName  # str
+        self.taskDescribe = _taskDescribe  # str
+        self.taskCategory = _taskCategory  # int, show by dict<int, string>(i)
         self.creationDateTime = datetime.datetime.now()  # datetime
         self.beginDateTime = datetime.datetime.now()  # datetime
         self.endDateTime = datetime.datetime.now()  # datatime
-        self.taskPriority = 100  # 0 for highest
-        self.taskStatus = TaskStatus.NULL  # enum(TaskStatus)
-        self.repetitive = False  # boolean
-        self.repeatPattern = "" # temporarily String, decide later.
-        self.needReminding = False  # boolean
+        self.taskPriority = _taskPriority  # 0 for highest
+        self.taskStatus = _taskStatus  # enum(TaskStatus)
+        self.repetitive = _repetitive  # boolean
+        self.repeatPattern = _repeatPattern  # temporarily String, decide later.
+        self.needReminding = _needReminding  # boolean
         self.remindDateTime = datetime.datetime.now()  # datetime
 
     def repeat(self):
@@ -90,4 +92,3 @@ class Task:
     def getNeedReminding(self): return self.needReminding
 
     def getRemindDateTime(self): return self.remindDateTime
-
