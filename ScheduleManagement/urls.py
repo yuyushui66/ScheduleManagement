@@ -20,5 +20,9 @@ from django.conf import settings
 from django.conf.urls. static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', views.login)
+    path('login/', views.login),
+    path('signup/', views.signup),
+    path('index/', views.index),
+    path('state/', views.state),
+
 ] + static (settings.STATIC_URL, document_root = settings.STATIC_ROOT)

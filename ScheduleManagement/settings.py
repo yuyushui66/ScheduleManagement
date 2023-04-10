@@ -66,6 +66,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'django.templatetags.static'
+            ],
         },
     },
 ]
@@ -81,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'SMDB',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Smdb1234',
         'HOST': 'bj-cynosdbmysql-grp-6afbmg9m.sql.tencentcdb.com',
         'PORT': '24356'
     }
