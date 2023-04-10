@@ -1,7 +1,11 @@
 import datetime
 from itertools import count
+
+import pymysql
+
 from mysqlconn import mysqlConnect, mysqlConnectDefault
 from enum import Enum
+import hashlib
 
 
 class UserStatus(Enum):
@@ -13,14 +17,15 @@ class UserStatus(Enum):
 class User:
     UserIDCounter = count(0)
 
-    def __init__(self):
+    def __init__(self, _name: str = "User", _email: str = "", _avatar: str = "",
+                 _password: str = hashlib.sha224("000000"),
+                 _status=UserStatus.LOGGED_OUT):
         self.id = next(User.UserIDCounter)
-        self.name = "User"
-        self.email = ""
-        self.avatar = ""
-        self.password = "000000"
-        self.birthDate = datetime.datetime.now()
-        self.status = UserStatus.LOGGED_OUT
+        self.name = _name
+        self.email = _email
+        self.avatar = _avatar
+        self.password = _password
+        self.status = _status
 
     # getter
     def getID(self):
@@ -38,12 +43,9 @@ class User:
     def getPassword(self):
         return self.password
 
-    def getBirthDate(self):
-        return self.birthDate
-
     # setter
-    def setName(self, name: str):
-        self.name = name
+    def setName(self, _name: str):
+        self.name = _name
 
     def setEmail(self, email: str):
         self.email = email
@@ -54,9 +56,6 @@ class User:
     def setPassword(self, password: str):
         self.password = password
 
-    def setBirthDate(self, birthDate: datetime):
-        self.birthDate = birthDate
-
     # other functions
     db, cursor = mysqlConnectDefault()
 
@@ -64,6 +63,7 @@ class User:
         sql = "select password from users where id = " + str(id)
         User.cursor.execute(sql)
         pwd = User.cursor.fetchall()
+        _password = hashlib.sha224(_password)
         if (pwd == _password):
             self.status = UserStatus.LOGGED_IN
             return True
@@ -73,15 +73,49 @@ class User:
     def logout(self):
         self.status = UserStatus.LOGGED_OUT
 
-    def register(self, _name, _email, _password, _birthDate):
-        sql = "insert into users values(" + str(
-            self.id) + ", " + _name + ", " + _email + ", " + _password + ", " + _birthDate + ")"
+    @staticmethod
+    def isDuplicatedEmail(_email):
+        sql = "select email from users where email = " + _email
         User.cursor.execute(sql)
-        User.db.commit()
+        email = User.cursor.fetchall()
+        if (email == _email):
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def register(_name, _email, _password):
+        """
+        desc: This function is used to register a new user.
+        :(1) check if the email is duplicated
+        :(2) if not, insert the new user into the database
+        :(3) return the id of the new user
+        :(4) if the email is duplicated, return -1
+        :(5) if there is an error, return -2
+        :param _name:
+        :param _email: should be unique
+        :param _password: get original password and hash it by sha224
+        :return: int
+        """
+        if (User.isDuplicatedEmail(_email)):
+            return -1
+        _password = hashlib.sha224(_password)
+        try:
+            id = next(User.UserIDCounter)
+            sql = "insert into users values(" + str(id) + ", " + _name + ", " + _email + ", " + str(
+                _password) + ", " + ")"
+            User.cursor.execute(sql)
+            User.db.commit()
+
+        except pymysql.Error as e:
+            print(e)
+            User.db.rollback()
+            return -2
+
         name = _name
         email = _email
         password = _password
-        birthDate = _birthDate
+        return id
 
     def delete(self):
         sql = "delete from users where id = " + str(self.id)
@@ -89,16 +123,11 @@ class User:
         User.db.commit()
 
     def update(self, _name, _email, _password, _birthDate):
-        sql = "update users set name = " + _name + ", email = " + _email + ", password = " + _password + ", birthDate = " + _birthDate + " where id = " + str(
-            self.id)
+        _password = hashlib.sha224(_password)
+        sql = "update users set name = " + _name + ", email = " + _email + ", password = " + str(
+            _password) + " where id = " + str(self.id)
         User.cursor.execute(sql)
         User.db.commit()
-
-    def ban(self):
-        self.status = UserStatus.BANNED
-
-    def unban(self):
-        self.status = UserStatus.LOGGED_OUT
 
     def isBanned(self):
         return self.status == UserStatus.BANNED

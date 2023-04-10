@@ -34,7 +34,19 @@
 
 ![img_1.png](img_1.png)
 
+## Database User Group
 
+There are 2 users.
+
+-1- `root`: (passwordHidden)
+
+-2- `user1`: password1
+
+`root` has all privileges on all databases.
+
+`user1` has `select`, `insert` privileges on database `SMDB`.
+
+If you are using database `SMDB` as a user, please connect with `user1`, not `root`.
 
 
 
