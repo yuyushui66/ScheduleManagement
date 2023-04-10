@@ -64,7 +64,7 @@ class User:
         User.cursor.execute(sql)
         pwd = User.cursor.fetchall()
         _password = hashlib.sha224(_password)
-        if (pwd == _password):
+        if pwd == _password:
             self.status = UserStatus.LOGGED_IN
             return True
         else:
@@ -78,7 +78,7 @@ class User:
         sql = "select email from users where email = " + _email
         User.cursor.execute(sql)
         email = User.cursor.fetchall()
-        if (email == _email):
+        if email == _email:
             return True
         else:
             return False
@@ -97,25 +97,21 @@ class User:
         :param _password: get original password and hash it by sha224
         :return: int
         """
-        if (User.isDuplicatedEmail(_email)):
+        if User.isDuplicatedEmail(_email):
             return -1
         _password = hashlib.sha224(_password)
         try:
-            id = next(User.UserIDCounter)
-            sql = "insert into users values(" + str(id) + ", " + _name + ", " + _email + ", " + str(
+            _id = next(User.UserIDCounter)
+            sql = "insert into users values(" + str(_id) + ", " + _name + ", " + _email + ", " + str(
                 _password) + ", " + ")"
             User.cursor.execute(sql)
             User.db.commit()
+            return id
 
         except pymysql.Error as e:
             print(e)
             User.db.rollback()
             return -2
-
-        name = _name
-        email = _email
-        password = _password
-        return id
 
     def delete(self):
         sql = "delete from users where id = " + str(self.id)
