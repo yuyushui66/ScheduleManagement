@@ -25,4 +25,4 @@ urlpatterns = [
     path('index/', views.index),
     path('state/', views.state),
 
-] + static (settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

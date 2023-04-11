@@ -35,12 +35,11 @@
     <![endif]-->
 
 
+    <!--演示页面样式，使用时可以不引用-->
+    <link rel="stylesheet" type="text/css" href="../static/font/css/demo.css">
 
-<!--演示页面样式，使用时可以不引用-->
-<link rel="stylesheet" type="text/css" href="../static/font/css/demo.css">
-
-<!--必要样式-->
-<link href="../static/font/css/component-chosen.css" rel="stylesheet">
+    <!--必要样式-->
+    <link href="../static/font/css/component-chosen.css" rel="stylesheet">
 
 
 </head>
@@ -489,93 +488,6 @@
                 </div> <!-- /span12 -->
 
 
-                <div class="container h-100">
-	<div class="d-flex align-items-start flex-column h-100">
-	  <form class="was-validated">
-		<div class="w-100 m-auto py-5">
-		  <div class="row">
-			<div class="span4">
-			  <label>Single:</label>
-			  <select id="single" class="form-control form-control-chosen" data-placeholder="Please select...">
-				<option></option>
-				<option>Option One</option>
-				<option>Option Two</option>
-				<option>Option Three</option>
-				<option>Option Four</option>
-				<option>Option Five</option>
-				<option>Option Six</option>
-				<option>Option Seven</option>
-				<option>Option Eight</option>
-			  </select>
-			</div>
-			<div class="span4">
-			  <label>Single (required):</label>
-			  <select id="required" class="form-control form-control-chosen-required" data-placeholder="Please select...">
-				<option></option>
-				<option>Option One</option>
-				<option>Option Two</option>
-				<option>Option Three</option>
-				<option>Option Four</option>
-				<option>Option Five</option>
-				<option>Option Six</option>
-				<option>Option Seven</option>
-				<option>Option Eight</option>
-			  </select>
-			</div>
-			<div class="span4">
-			  <label>Multiple:</label>
-			  <select id="multiple" class="form-control form-control-chosen" data-placeholder="Please select..." multiple>
-				<option></option>
-				<option>Option One</option>
-				<option>Option Two</option>
-				<option>Option Three</option>
-				<option>Option Four</option>
-				<option>Option Five</option>
-				<option>Option Six</option>
-				<option>Option Seven</option>
-				<option>Option Eight</option>
-			  </select>
-			</div>
-			<div class="span6">
-			  <label>Optgroup:</label>
-			  <select id="optgroup" class="form-control form-control-chosen" data-placeholder="Please select..." multiple>
-				<optgroup label="Label A">
-				  <option>Option One</option>
-				  <option>Option Two</option>
-				  <option>Option Three</option>
-				  <option>Option Four</option>
-				</optgroup>
-				<optgroup label="Label B">
-				  <option>Option Five</option>
-				  <option>Option Six</option>
-				  <option>Option Seven</option>
-				  <option>Option Eight</option>
-				</optgroup>
-			  </select>
-			</div>
-			<div class="span6">
-			  <label>Clickable optgroup:</label>
-			  <select id="optgroup_clickable" class="form-control form-control-chosen-optgroup" title="clickable_optgroup" data-placeholder="Please select..." multiple>
-				<optgroup label="Label A">
-				  <option>Option One</option>
-				  <option>Option Two</option>
-				  <option>Option Three</option>
-				  <option>Option Four</option>
-				</optgroup>
-				<optgroup label="Label B">
-				  <option>Option Five</option>
-				  <option>Option Six</option>
-				  <option>Option Seven</option>
-				  <option>Option Eight</option>
-				</optgroup>
-			  </select>
-			</div>
-		  </div>
-		</div>
-	  </form>
-	</div>
-</div>
-
 
 
                 <div class="span12">
@@ -583,6 +495,59 @@
                     <div id="target-1" class="widget">
 
                         <div class="widget-content">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect02">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect02">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">With textarea</span>
+                                </div>
+                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                            </div>
 
 
                         </div> <!-- /widget-content -->
@@ -873,6 +838,12 @@
 <script src="/static/js/jquery-1.7.2.min.js"></script>
 
 <script src="/static/js/bootstrap.js"></script>
+
+
+<script src="/static/js/bootstrap.bundle.js"></script>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+
 <script src="/static/js/base.js"></script>
 
 <script src="/static/js/guidely/guidely.min.js"></script>
@@ -881,80 +852,79 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js'></script>
 
 <script src="../static/font/js/script.js"></script>
-<script>
-
-    $(function () {
-
-        guidely.add({
-            attachTo: '#target-1'
-            , anchor: 'top-left'
-            , title: 'Guide Title'
-            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
-        });
-
-        guidely.add({
-            attachTo: '#target-2'
-            , anchor: 'top-right'
-            , title: 'Guide Title'
-            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
-        });
-
-        guidely.add({
-            attachTo: '#target-3'
-            , anchor: 'middle-middle'
-            , title: 'Guide Title'
-            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
-        });
-
-        guidely.add({
-            attachTo: '#target-4'
-            , anchor: 'top-right'
-            , title: 'Guide Title'
-            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
-        });
-
-        guidely.init({welcome: true, startTrigger: false});
-
-
-    });
-
-</script>
+{#<script>#}
+{##}
+{#    $(function () {#}
+{##}
+{#        guidely.add({#}
+{#            attachTo: '#target-1'#}
+{#            , anchor: 'top-left'#}
+{#            , title: 'Guide Title'#}
+{#            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'#}
+{#        });#}
+{##}
+{#        guidely.add({#}
+{#            attachTo: '#target-2'#}
+{#            , anchor: 'top-right'#}
+{#            , title: 'Guide Title'#}
+{#            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'#}
+{#        });#}
+{##}
+{#        guidely.add({#}
+{#            attachTo: '#target-3'#}
+{#            , anchor: 'middle-middle'#}
+{#            , title: 'Guide Title'#}
+{#            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'#}
+{#        });#}
+{##}
+{#        guidely.add({#}
+{#            attachTo: '#target-4'#}
+{#            , anchor: 'top-right'#}
+{#            , title: 'Guide Title'#}
+{#            , text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'#}
+{#        });#}
+{##}
+{#        guidely.init({welcome: true, startTrigger: false});#}
+{##}
+{##}
+{#    });#}
+{##}
+{#</script>#}
 
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../static/font/js/chosen.jquery.js"></script>
 <script type="text/javascript">
-	$('.form-control-chosen').chosen({
-	  allow_single_deselect: true,
-	  width: '100%'
-	});
-	$('.form-control-chosen-required').chosen({
-	  allow_single_deselect: false,
-	  width: '100%'
-	});
-	$('.form-control-chosen-search-threshold-100').chosen({
-	  allow_single_deselect: true,
-	  disable_search_threshold: 100,
-	  width: '100%'
-	});
-	$('.form-control-chosen-optgroup').chosen({
-	  width: '100%'
-	});
+    $('.form-control-chosen').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+    });
+    $('.form-control-chosen-required').chosen({
+        allow_single_deselect: false,
+        width: '100%'
+    });
+    $('.form-control-chosen-search-threshold-100').chosen({
+        allow_single_deselect: true,
+        disable_search_threshold: 100,
+        width: '100%'
+    });
+    $('.form-control-chosen-optgroup').chosen({
+        width: '100%'
+    });
 
-	$(function() {
-	  $('[title="clickable_optgroup"]').addClass('chosen-container-optgroup-clickable');
-	});
-	$(document).on('click', '[title="clickable_optgroup"] .group-result', function() {
-	  var unselected = $(this).nextUntil('.group-result').not('.result-selected');
-	  if(unselected.length) {
-		unselected.trigger('mouseup');
-	  } else {
-		$(this).nextUntil('.group-result').each(function() {
-		  $('a.search-choice-close[data-option-array-index="' + $(this).data('option-array-index') + '"]').trigger('click');
-		});
-	  }
-	});
+    $(function () {
+        $('[title="clickable_optgroup"]').addClass('chosen-container-optgroup-clickable');
+    });
+    $(document).on('click', '[title="clickable_optgroup"] .group-result', function () {
+        var unselected = $(this).nextUntil('.group-result').not('.result-selected');
+        if (unselected.length) {
+            unselected.trigger('mouseup');
+        } else {
+            $(this).nextUntil('.group-result').each(function () {
+                $('a.search-choice-close[data-option-array-index="' + $(this).data('option-array-index') + '"]').trigger('click');
+            });
+        }
+    });
 </script>
-
 
 
 </body>
