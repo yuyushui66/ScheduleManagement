@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,24 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+{#    <link href="/static/css/bootstrap.min.css" rel="stylesheet">#}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
     <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-    <link href="/static/css/font-awesome.css" rel="stylesheet">
-
+{#    <link href="/static/css/font-awesome.css" rel="stylesheet">#}
+    <link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!--图标库-->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css'>
-
     <!--核心样式-->
     <link rel="stylesheet" href="../static/font/css/style.css">
-
 
     <link href="/static/js/guidely/guidely.css" rel="stylesheet">
 
@@ -34,14 +33,8 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-
-    <!--演示页面样式，使用时可以不引用-->
-    <link rel="stylesheet" type="text/css" href="../static/font/css/demo.css">
-
     <!--必要样式-->
     <link href="../static/font/css/component-chosen.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -495,58 +488,60 @@
                     <div id="target-1" class="widget">
 
                         <div class="widget-content">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                                </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
 
-                            <div class="input-group mb-3">
-                                <select class="custom-select" id="inputGroupSelect02">
-                                    <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
-                                </div>
-                            </div>
+
+
+{#                            <div class="span12">#}
+{#            <a>联系方式:</a>#}
+{#            <input class = "span8" id="appName" type="text" list="appNamelist" style="padding:0.5em;border-radius:10px;">#}
+{#            <datalist id="appNamelist">#}
+{#                <option>WeChat(微信)</option>#}
+{#				<option>QQ</option>#}
+{#				<option>Google Talk</option>#}
+{#				<option>Twitter</option>#}
+{#                <option>Facekbook</option>#}
+{#            </datalist>#}
+{#        </div>#}
+
+
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                    <label class="input-group-text" for="inputGroupSelect01">类别</label>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
+                                <select class="span4" id="inputGroupSelect01">
                                     <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">课内学习</option>
+                                    <option value="2">课外学习</option>
+                                    <option value="3">游玩</option>
                                 </select>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <select class="custom-select" id="inputGroupSelect02">
+                                <select class="span4" id="inputGroupSelect01">
                                     <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">课内学习</option>
+                                    <option value="2">课外学习</option>
+                                    <option value="3">游玩</option>
                                 </select>
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
-                                </div>
+                                <select class="span4" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="1">课内学习</option>
+                                    <option value="2">课外学习</option>
+                                    <option value="3">游玩</option>
+                                </select>
                             </div>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">With textarea</span>
+                                    <span class="input-group-text">任务时间</span>
                                 </div>
-                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                                <input class="span6" type="text" placeholder="开始时间">
+                                <input class="span6" type="text" placeholder="结束时间">
+                            </div>
+
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">任务描述</span>
+                                </div>
+                                <textarea class="span11" aria-label="With textarea"></textarea>
                             </div>
 
 

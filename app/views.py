@@ -71,4 +71,10 @@ def state(request):
     else : # 以POST形式进行响应，就是前端网页中的对应位置的数据会被放置在POST中，以map的形式
         return render(request, 'state.html')
 
+def reports(request):
+    if request.method == 'GET':
+        return render(request, 'reports.html')
+    else :
+        return render(request, 'reports.html')
+
 
