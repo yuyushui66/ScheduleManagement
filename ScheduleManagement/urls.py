@@ -18,6 +18,7 @@ from django.urls import path
 from app import views
 from django.conf import settings
 from django.conf.urls. static import static
+from django.urls import re_path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login),
@@ -25,5 +26,6 @@ urlpatterns = [
     path('index/', views.index),
     path('state/', views.state),
     path('reports/', views.reports),
+    path('i18n/', include('django.conf.urls.i18n')),
 
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

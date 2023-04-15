@@ -17,7 +17,7 @@ import zipfile
 import sys
 from app import models
 from datetime import datetime
-
+from django.utils.translation import gettext_lazy as _
 
 @csrf_exempt
 # request是一个对象，在其中封装了浏览器发送来的所有请求相关数据
