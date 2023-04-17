@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-17 11:57+0800\n"
+"POT-Creation-Date: 2023-04-17 12:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,21 +25,42 @@ msgstr ""
 msgid "Simplified Chinese"
 msgstr ""
 
-#: .\templates\login.html:8
-msgid "Login"
-msgstr "登录"
-
+#: .\templates\index.html:6 .\templates\index.html:28
 #: .\templates\login.html:39 .\templates\signup.html:38
 msgid "Schedule Management"
 msgstr "日程管理"
 
+#: .\templates\index.html:32
+msgid " Account "
+msgstr "账户"
+
+#: .\templates\index.html:34
+msgid "Settings"
+msgstr "设置"
+
+#: .\templates\index.html:35
+msgid "Help"
+msgstr "帮助"
+
+#: .\templates\index.html:41
+msgid "Profile"
+msgstr "账户信息"
+
+#: .\templates\index.html:42
+msgid "Logout"
+msgstr "退出登录"
+
+#: .\templates\index.html:47
+msgid "Search"
+msgstr "搜索"
+
+#: .\templates\login.html:8
+msgid "Login"
+msgstr "登录"
+
 #: .\templates\login.html:47
 msgid "Don't have an account?"
 msgstr "没有帐户？"
-
-#: .\templates\login.html:55 .\templates\signup.html:52
-msgid "Back to Homepage"
-msgstr "返回主页"
 
 #: .\templates\login.html:76
 msgid "Member Login"
@@ -76,6 +97,10 @@ msgstr "注册"
 #: .\templates\signup.html:45
 msgid "Already have an account? Login now"
 msgstr "已有帐户？登录"
+
+#: .\templates\signup.html:52
+msgid "Back to Homepage"
+msgstr "返回主页"
 
 #: .\templates\signup.html:73
 msgid "Signup for Free Account"
