@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-17 11:26+0800\n"
+"POT-Creation-Date: 2023-04-17 11:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,11 @@ msgstr ""
 msgid "Simplified Chinese"
 msgstr ""
 
-#: .\templates\login.html:39
+#: .\templates\login.html:8
+msgid "Login"
+msgstr "登录"
+
+#: .\templates\login.html:39 .\templates\signup.html:38
 msgid "Schedule Management"
 msgstr "日程管理"
 
@@ -33,7 +37,7 @@ msgstr "日程管理"
 msgid "Don't have an account?"
 msgstr "没有帐户？"
 
-#: .\templates\login.html:55
+#: .\templates\login.html:55 .\templates\signup.html:52
 msgid "Back to Homepage"
 msgstr "返回主页"
 
@@ -49,8 +53,7 @@ msgstr "请填写您的信息"
 msgid "Username"
 msgstr "用户名"
 
-#: .\templates\login.html:90
-#, fuzzy
+#: .\templates\login.html:90 .\templates\signup.html:97
 msgid "Password"
 msgstr "密码"
 
@@ -65,3 +68,51 @@ msgstr "登录"
 #: .\templates\login.html:118
 msgid "Reset Password"
 msgstr "重置密码"
+
+#: .\templates\signup.html:7
+msgid "Signup"
+msgstr "注册"
+
+#: .\templates\signup.html:45
+msgid "Already have an account? Login now"
+msgstr "已有帐户？登录"
+
+#: .\templates\signup.html:73
+msgid "Signup for Free Account"
+msgstr "免费注册"
+
+#: .\templates\signup.html:77
+msgid "Create your free account:"
+msgstr "创建您的账户"
+
+#: .\templates\signup.html:81
+msgid "First Name"
+msgstr "名"
+
+#: .\templates\signup.html:86
+msgid "Last Name"
+msgstr "姓"
+
+#: .\templates\signup.html:92
+msgid "Email"
+msgstr "邮箱"
+
+#: .\templates\signup.html:103
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#: .\templates\signup.html:112
+msgid "Agree with the Terms & Conditions."
+msgstr "同意合约条款"
+
+#: .\templates\signup.html:115
+msgid "Register"
+msgstr "注册"
+
+#: .\templates\signup.html:128
+msgid "Already have an account? "
+msgstr "已有帐户？"
+
+#: .\templates\signup.html:128
+msgid "Login to your account"
+msgstr "登录"
