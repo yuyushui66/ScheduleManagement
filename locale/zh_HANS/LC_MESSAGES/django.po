@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 08:32+0800\n"
+"POT-Creation-Date: 2023-04-17 11:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,10 +25,43 @@ msgstr ""
 msgid "Simplified Chinese"
 msgstr ""
 
+#: .\templates\login.html:39
+msgid "Schedule Management"
+msgstr "日程管理"
+
 #: .\templates\login.html:47
 msgid "Don't have an account?"
-msgstr ""
+msgstr "没有帐户？"
 
 #: .\templates\login.html:55
 msgid "Back to Homepage"
-msgstr ""
+msgstr "返回主页"
+
+#: .\templates\login.html:76
+msgid "Member Login"
+msgstr "登录"
+
+#: .\templates\login.html:80
+msgid "Please provide your details"
+msgstr "请填写您的信息"
+
+#: .\templates\login.html:84
+msgid "Username"
+msgstr "用户名"
+
+#: .\templates\login.html:90
+#, fuzzy
+msgid "Password"
+msgstr "密码"
+
+#: .\templates\login.html:101
+msgid "Keep me signed in"
+msgstr "记住账号"
+
+#: .\templates\login.html:104
+msgid "Sign In"
+msgstr "登录"
+
+#: .\templates\login.html:118
+msgid "Reset Password"
+msgstr "重置密码"
