@@ -27,5 +27,7 @@ urlpatterns = [
     path('state/', views.state),
     path('reports/', views.reports),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('', include('register.urls')),
+    path('register/', include("register.urls")),
 
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
