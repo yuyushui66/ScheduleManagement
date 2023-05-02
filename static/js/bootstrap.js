@@ -834,7 +834,9 @@
 
       e.preventDefault()
       $target.modal(option)
+
     })
+
   })
 
 }( window.jQuery );/* ===========================================================
