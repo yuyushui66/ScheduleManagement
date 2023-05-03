@@ -473,10 +473,41 @@
     }
 
     $(document).ready(function () {
+        var List = {{ data|safe }};
+        var length = List.length;
+        var event = new Array(0);
+        var date1,day,mouth,year,date2,day2,mouth2,year2;
+        for(var i=0;i<length;i++)
+        {
+            date1 = new Date(List[i][2]);
+            day = date1.getDate();
+            mouth = date1.getMonth();
+            year = date1.getFullYear();
+            if(List[i][3]!=='null')
+            {
+                date2 = new Date(List[i][3]);
+                day2 = date2.getDate();
+                mouth2 = date2.getMonth();
+                year2 = date2.getFullYear();
+            }
+            else
+            {
+                day2 = day;
+                mouth2 = mouth;
+                year2 = year;
+            }
+            b = List[i][4] === 'true';
+            event.push({'title':List[i][0],'id':List[i][1],'start':new Date(year,mouth,day),'end':new Date(year2,mouth2,day2),'allDay':b});
+        }
+        console.log(event);
+        {#var x = new Date(List[2])#}
+
+
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
+
         var calendar = $('#calendar').fullCalendar({
             header: {
                 left: 'prev,next today',
@@ -501,55 +532,64 @@
                 calendar.fullCalendar('unselect');
             },
             editable: true,
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1)
-                },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d + 5),
-                    end: new Date(y, m, d + 7)
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d - 3, 16, 0),
-                    allDay: false
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d + 4, 16, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false
-                },
-                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    allDay: false
-                },
-                {
-                    title: 'by EGrappler',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://by EGrappler/'
-                }
-            ]
+            events:event
+            {#    {#}
+            {#        title: 'All Day Event',#}
+            {#        start: new Date(y, m, 1)#}
+            {#    },#}
+            {#    {#}
+            {#        title: 'Long Event',#}
+            {#        start: new Date(y, m, d + 5),#}
+            {#        end: new Date(y, m, d + 7)#}
+            {#    },#}
+            {#    {#}
+            {#        id: 999,#}
+            {#        title: 'Repeating Event',#}
+            {#        start: new Date(y, m, d - 3, 16, 0),#}
+            {#        allDay: false#}
+            {#    },#}
+            {#    {#}
+            {#        id: 999,#}
+            {#        title: 'Repeating Event',#}
+            {#        start: new Date(y, m, d + 4, 16, 0),#}
+            {#        allDay: false#}
+            {#    },#}
+            {#    {#}
+            {#        title: 'Meeting',#}
+            {#        start: new Date(y, m, d, 10, 30),#}
+            {#        allDay: false#}
+            {#    },#}
+            {#    {#}
+            {#        title: 'Lunch',#}
+            {#        start: new Date(y, m, d, 12, 0),#}
+            {#        end: new Date(y, m, d, 14, 0),#}
+            {#        allDay: false#}
+            {#    },#}
+            {#    {#}
+            {#        title: 'Birthday Party',#}
+            {#        start: new Date(y, m, d + 1, 19, 0),#}
+            {#        end: new Date(y, m, d + 1, 22, 30),#}
+            {#        allDay: false#}
+            {#    },#}
+            {#    {#}
+            {#        title: 'by EGrappler',#}
+            {#        start: new Date(y, m, 28),#}
+            {#        end: new Date(y, m, 29),#}
+            {#        url: 'http://by EGrappler/'#}
+            {#    },#}
+            {#    {#}
+                    {#title: List[0],#}
+                    {#id: List[1],#}
+                    {#start: new Date(x.getFullYear(), x.getMonth(), x.getDate()),#}
+                    {#end: new Date(y, m, 16),#}
+                    {#allDay: true#}
+            {#    }#}
+            {#]#}
         });
     });
 </script><!-- /Calendar -->
+
+
 
 
 <!-- select部分 -->
