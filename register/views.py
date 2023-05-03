@@ -3,7 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
+# pip install djangorestframework
+# pip install django-cors-headers
 class ScheduleView(APIView):
     schedule = []
     # 日程信息，每个元素为[{'title':},{'id':},{'start':},{'end':},{'allday':}]，value均为string
@@ -22,4 +23,7 @@ class ScheduleView(APIView):
             print(self.schedule[i])
 
         return Response({"status": True, 'message': '发送成功'})
+
+
+
 
