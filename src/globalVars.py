@@ -14,6 +14,7 @@ class RFrequency(Enum):
     MONTHLY = 3
     YEARLY = 4
 
+
 class TaskStatus(Enum):
     YET_TO_BEGIN = 0
     PROCESSING = 1
@@ -21,3 +22,7 @@ class TaskStatus(Enum):
     FAILED = 3
     ABANDONED = 4
     NULL = 5
+
+
+dayShortNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+MonthShortNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]

@@ -1,6 +1,6 @@
 from Task import Task, TaskStatus
 import datetime
-from globalEnums import *
+from globalVars import *
 
 
 class RTask(Task):

@@ -1,8 +1,6 @@
 import datetime
-from globalEnums import *
+from globalVars import *
 from itertools import count
-
-# TODO: function -> Task.repeat()
 
 
 class Task:

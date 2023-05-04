@@ -1,12 +1,15 @@
-import TaskList
+from TaskList import TaskList
 import User
+from Task import Task
+from RepeatTask import RTask
 
 
 class TaskManager:
 
     def __init__(self, _user: User):
         self.taskLists = []
-        self.importantTaskList = TaskList.TaskList("Important", "Tasks that are important")
+        self.importantTaskList = TaskList("Important", "Tasks that are important")
+        self.defaultTaskList = TaskList("Default", "default task list")
         self.user = _user
 
     def addTaskList(self, taskList: TaskList):
@@ -33,4 +36,10 @@ class TaskManager:
     def setUser(self, user: User):
         self.user = user
 
-    # def addTask(self):
+    def addTask(self, _taskList: TaskList, task: Task, rtask:RTask):
+        if _taskList is None:
+            _taskList = self.defaultTaskList
+        if task is not None:
+            _taskList.addTask(task)
+        elif rtask is not None:
+            _taskList.addTask(rtask)
