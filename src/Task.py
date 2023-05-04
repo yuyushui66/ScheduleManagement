@@ -21,13 +21,16 @@ class Task:
 
     @staticmethod
     def readCategories():
+        # need to read from db or file.
         return dict()  # dict<int, str>
 
-    def __init__(self, _taskName: str = '', _taskDescribe: str = '', _taskCategory: int = 0, _taskPriority: int = 100,
-                 _taskStatus: TaskStatus = TaskStatus.NULL, _repetitive: bool = False, _repeatPattern: str = None,
+    def __init__(self, _taskName: str = '',
+                 _taskDescribe: str = '',
+                 _taskCategory: int = 0, _taskPriority: int = 100,
+                 _taskStatus: TaskStatus = TaskStatus.NULL,
                  _needReminding: bool = False, _remindDateTime: datetime = False):
         self.taskCategories = Task.readCategories()  # dict<int,str>
-        self.taskID = next(Task._instanceCounter)  # int, primary key for a task
+        self.taskID = 0  # int, primary key for a task
         self.taskName = _taskName  # str
         self.taskDescribe = _taskDescribe  # str
         self.taskCategory = _taskCategory  # int, show by dict<int, string>(i)
@@ -36,13 +39,8 @@ class Task:
         self.endDateTime = datetime.datetime.now()  # datatime
         self.taskPriority = _taskPriority  # 0 for highest
         self.taskStatus = _taskStatus  # enum(TaskStatus)
-        self.repetitive = _repetitive  # boolean
-        self.repeatPattern = _repeatPattern  # temporarily String, decide later.
         self.needReminding = _needReminding  # boolean
         self.remindDateTime = datetime.datetime.now()  # datetime
-
-    def repeat(self):
-        pass
 
     # setter
     def setTaskName(self, name: str): self.taskName = name
@@ -56,10 +54,6 @@ class Task:
     def setEndDateTime(self, dt: datetime): self.endDateTIme = dt
 
     def setTaskPriority(self, prio: int): self.taskPriority = prio
-
-    def setRepetitive(self, flag: bool): self.repetitive = flag
-
-    def setRepeatTimeLoop(self, loop: int): self.repeatTimeLoop = loop
 
     def setNeedReminding(self, flag: bool): self.needReminding = flag
 
@@ -84,10 +78,6 @@ class Task:
     def getTaskPriority(self): return self.taskPriority
 
     def getTaskStatus(self): return self.taskStatus
-
-    def getRepetitive(self): return self.repetitive
-
-    def getRepeatTimeLoop(self): return self.repeatTimeLoop
 
     def getNeedReminding(self): return self.needReminding
 

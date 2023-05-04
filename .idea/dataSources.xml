@@ -8,5 +8,14 @@
       <jdbc-url>jdbc:mysql://bj-cynosdbmysql-grp-6afbmg9m.sql.tencentcdb.com:24356/SMDB</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="b003a15e-6779-4966-b9e9-762ffea5adda">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/ScheduleManagement/settings.py</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://bj-cynosdbmysql-grp-6afbmg9m.sql.tencentcdb.com:24356/SMDB</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

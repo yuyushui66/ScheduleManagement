@@ -17,6 +17,12 @@ def mysqlConnectDefault():
     cursor = db.cursor()
     return db, cursor
 
+def mysqlConnectUser():
+    db = pymysql.connect(host='bj-cynosdbmysql-grp-6afbmg9m.sql.tencentcdb.com',
+                         user='user1',
+                         passwd='password1',
+                            port=24356)
+
 # 打开数据库连接
 # try:
 #     db = pymysql.connect(host='localhost', user='root', passwd='zcx.11123', port=3306)
