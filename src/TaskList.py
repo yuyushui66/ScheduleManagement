@@ -6,7 +6,7 @@ class TaskList:
     taskListCounter = count(0)
 
     def __init__(self, _taskListName: str = None, _taskListDescribe: str = None):
-        self.taskListID = next(TaskList.taskListCounter)  # int, primary key for a task list
+        self.taskListID = 0  # int, primary key for a task list
         self.taskList = []  # list of Tasks
         self.taskListView = []  # list of Tasks sorted
         self.taskListName = ""  # str
@@ -38,6 +38,10 @@ class TaskList:
         return self.taskListView
 
     # setter
+
+    def setTaskListID(self, ID: int):
+        self.taskListID = ID
+
     def setTaskListName(self, name: str):
         self.taskListName = name
 

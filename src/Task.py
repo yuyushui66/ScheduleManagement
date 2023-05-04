@@ -1,17 +1,6 @@
-import time
 import datetime
-from enum import Enum
+from globalEnums import *
 from itertools import count
-
-
-class TaskStatus(Enum):
-    YET_TO_BEGIN = 0
-    PROCESSING = 1
-    DONE = 2
-    FAILED = 3
-    ABANDONED = 4
-    NULL = 5
-
 
 # TODO: function -> Task.repeat()
 

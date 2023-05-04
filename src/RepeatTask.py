@@ -1,20 +1,6 @@
 from Task import Task, TaskStatus
 import datetime
-from enum import Enum
-
-
-class RMode(Enum):
-    CYCLE = 0
-    DURATION = 1
-    SELECTION = 2
-
-
-class RFrequency(Enum):
-    NONE = 0
-    DAILY = 1
-    WEEKLY = 2
-    MONTHLY = 3
-    YEARLY = 4
+from globalEnums import *
 
 
 class RTask(Task):
