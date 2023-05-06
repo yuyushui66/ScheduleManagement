@@ -22,6 +22,12 @@ from datetime import datetime
 from django.utils.translation import gettext_lazy as _
 
 import src.Communication as cm
+import src.mysqlconn as mysqlconn
+from src.UserManager import UserManager
+from src.User import User
+
+u = User(0)
+um = UserManager()
 
 
 @csrf_exempt
@@ -54,7 +60,7 @@ def signup(request):
         return render(request, 'signup.html')
         # return HttpResponse("欢迎使用")
     else:
-        name = request.POST.get("firstname") + request.POST.get("lastname")
+        name = request.POST.get("firstname") + ' ' + request.POST.get("lastname")
         email = request.POST.get("email")
         pwd = request.POST.get("password")
         re_pwd = request.POST.get("confirm_password")
@@ -62,7 +68,18 @@ def signup(request):
         print(name, email, pwd, re_pwd, isaccpt)
         # 正则判断输入是否合法，合法则插入数据库
 
-        return render(request, 'signup.html')
+        # test if email is valid.
+
+        if pwd != re_pwd:
+            return render(request, "signup.html", {"error_msg": "两次密码不一致"})
+        else:
+            if u.isDuplicatedEmail(email):
+                return render(request, "signup.html", {"error_msg": "该邮箱已被注册"})
+            else:
+                u.register(name, email, pwd)
+                return render(request, "login.html", {"success_msg": "注册成功，请登录"})
+
+        # return render(request, 'signup.html')
 
 
 def index(request):
@@ -72,20 +89,24 @@ def index(request):
     res = c.readFromDB(sql, False)
     NewestId = 0
     for i in res:
-        new_result=[
+        new_result = [
             i[1],
-            "_fc"+str(i[0]),
+            "_fc" + str(i[0]),
         ]
-        if i[6] is None: new_result.append('null')
-        else: new_result.append(i[6].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
-        if i[7] is None: new_result.append('null')
-        else: new_result.append(i[7].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
+        if i[6] is None:
+            new_result.append('null')
+        else:
+            new_result.append(i[6].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
+        if i[7] is None:
+            new_result.append('null')
+        else:
+            new_result.append(i[7].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
         new_result.append('true')
         data.append(new_result)
         if i[0] > NewestId: NewestId = i[0]
 
     NewestId = NewestId + 1
-    file = open('static/js/full-calendar/id.txt','w', encoding='utf-8')
+    file = open('static/js/full-calendar/id.txt', 'w', encoding='utf-8')
     file.write(str(NewestId))
     file.close()
 

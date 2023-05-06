@@ -1,5 +1,5 @@
-import User
-import mysqlconn
+import src.User as User
+import src.mysqlconn as mysqlconn
 
 
 class UserManager:

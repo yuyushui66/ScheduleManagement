@@ -3,28 +3,29 @@ from itertools import count
 
 import pymysql
 
-from mysqlconn import mysqlConnect, mysqlConnectDefault
+from src.mysqlconn import mysqlConnect, mysqlConnectDefault
 from enum import Enum
 import hashlib
 
 
 class UserStatus(Enum):
     LOGGED_IN = 0
-
-class User:
+    LOGGED_OUT = 1
     BANNED = 2
 
 
+class User:
+    UserIDCounter = count(0)
+
     def __init__(self, _id: int, _name: str = "User", _email: str = "", _avatar: str = "",
-                 _password: str = hashlib.sha224("000000"),
+                 _password: str = "0".encode('utf-8'),
                  _status=UserStatus.LOGGED_OUT):
-        LOGGED_OUT = 1
-        UserIDCounter = count(0)
+
         self.id = _id
         self.name = _name
         self.email = _email
         self.avatar = _avatar
-        self.password = _password
+        self.password = hashlib.sha224(_password).hexdigest()
         self.status = _status
 
     # getter
@@ -54,7 +55,7 @@ class User:
         self.avatar = avatar
 
     def setPassword(self, password: str):
-        self.password = password
+        self.password = hashlib.sha224(password).hexdigest()
 
     # other functions
     db, cursor = mysqlConnectDefault()
@@ -63,7 +64,7 @@ class User:
         sql = "select password from users where id = " + str(id)
         User.cursor.execute(sql)
         pwd = User.cursor.fetchall()
-        _password = hashlib.sha224(_password)
+        _password = hashlib.sha224(_password).hexdigest()
         if pwd == _password:
             self.status = UserStatus.LOGGED_IN
             return True
@@ -75,7 +76,7 @@ class User:
 
     @staticmethod
     def isDuplicatedEmail(_email):
-        sql = "select email from users where email = " + _email
+        sql = "select email from users where email = " + "'" + _email + "'" + ";"
         User.cursor.execute(sql)
         email = User.cursor.fetchall()
         if email == _email:
@@ -99,11 +100,15 @@ class User:
         """
         if User.isDuplicatedEmail(_email):
             return -1
-        _password = hashlib.sha224(_password)
+        _password = hashlib.sha224(_password).hexdigest()
         try:
             _id = next(User.UserIDCounter)
-            sql = "insert into users values(" + str(_id) + ", " + _name + ", " + _email + ", " + str(
-                _password) + ", " + ")"
+            sql = "insert into users values(" \
+                  + str(_id) + ", " \
+                  + "'" + _name + "', " \
+                  + "'" + _email + "', " \
+                  + "'" + str(_password) + "', " + ");"
+            print(sql)
             User.cursor.execute(sql)
             User.db.commit()
             return id
@@ -119,7 +124,7 @@ class User:
         User.db.commit()
 
     def update(self, _name, _email, _password, _birthDate):
-        _password = hashlib.sha224(_password)
+        _password = hashlib.sha224(_password).hexdigest()
         sql = "update users set name = " + _name + ", email = " + _email + ", password = " + str(
             _password) + " where id = " + str(self.id)
         User.cursor.execute(sql)
