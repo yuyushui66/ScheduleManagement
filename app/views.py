@@ -25,9 +25,20 @@ import src.Communication as cm
 import src.mysqlconn as mysqlconn
 from src.UserManager import UserManager
 from src.User import User
+import hashlib
+
+import re
 
 u = User(0)
 um = UserManager()
+
+regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+
+def isValidEmail(email):
+    if re.fullmatch(regex, email):
+        return True
+    else:
+        return False
 
 
 @csrf_exempt
@@ -39,17 +50,26 @@ def login(request):
         return render(request, 'login.html')
         # return HttpResponse("欢迎使用")
     else:
-        username = request.POST.get("username")
+        email = request.POST.get("username")
         pwd = request.POST.get("password")
         is_keep = request.POST.get("Field")
-        print(username, pwd, is_keep)
 
         # 此处应该判断密码及用户在数据库中是否有匹配的项，若有则执行下面语句index.html，若无login.html
         # if username in mysql and pwd in mysql:
-        if username == 123 and pwd == 123:
-            return render(request, 'index.html')
+
+        sql = "select password from users where email = " + "'" + email + "'" + ";"
+        User.cursor.execute(sql)
+        correct_pwd = User.cursor.fetchall()
+        correct_pwd = correct_pwd[0][0]
+
+
+        pwd = hashlib.sha224(pwd.encode('utf-8')).hexdigest()
+
+        if pwd == correct_pwd:
+            return redirect('/index/')
         else:
             return render(request, "login.html", {"error_msg": "用户名或密码错误"})
+
 
 
 @csrf_exempt
@@ -70,7 +90,10 @@ def signup(request):
 
         # test if email is valid.
 
-        if pwd != re_pwd:
+        res = isValidEmail(email)
+        if not res:
+            return render(request, "signup.html", {"error_msg": "邮箱格式不正确"})
+        elif pwd != re_pwd:
             return render(request, "signup.html", {"error_msg": "两次密码不一致"})
         else:
             if u.isDuplicatedEmail(email):
