@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-17 20:47+0800\n"
+"POT-Creation-Date: 2023-05-06 18:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\ScheduleManagement\settings.py:132
+#: .\ScheduleManagement\settings.py:139
 msgid "English"
 msgstr ""
 
-#: .\ScheduleManagement\settings.py:133
+#: .\ScheduleManagement\settings.py:140
 msgid "Simplified Chinese"
 msgstr ""
 
 #: .\templates\index.html:6 .\templates\index.html:28
 #: .\templates\login.html:39 .\templates\signup.html:38
+#: .\templates\state.html:54
 msgid "Schedule Management"
 msgstr "日程管理"
 
-#: .\templates\index.html:32
+#: .\templates\index.html:32 .\templates\state.html:62
 msgid " Account "
 msgstr "账户"
 
@@ -54,13 +55,20 @@ msgstr "退出登录"
 msgid "Search"
 msgstr "搜索"
 
-#: .\templates\index.html:61
+#: .\templates\index.html:61 .\templates\reports.html:103
+#: .\templates\state.html:110
 msgid "Homepage"
 msgstr "主页"
 
-#: .\templates\index.html:62
+#: .\templates\index.html:62 .\templates\reports.html:112
+#: .\templates\state.html:118
 msgid "Reports"
 msgstr "统计"
+
+#: .\templates\index.html:63 .\templates\reports.html:119
+#: .\templates\state.html:8 .\templates\state.html:125
+msgid "state"
+msgstr "状态"
 
 #: .\templates\login.html:8
 msgid "Login"
@@ -149,3 +157,8 @@ msgstr "已有帐户？"
 #: .\templates\signup.html:128
 msgid "Login to your account"
 msgstr "登录"
+
+#, fuzzy
+#~| msgid " Account "
+#~ msgid "Account"
+#~ msgstr "账户"
