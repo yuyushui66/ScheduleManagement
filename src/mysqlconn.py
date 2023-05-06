@@ -1,5 +1,5 @@
 import pymysql
-import conf
+import src.conf as conf
 
 
 def mysqlConnect(_host: str, _user: str, _passwd: str, _port: int = 3306):
@@ -21,7 +21,7 @@ def mysqlConnectUser():
     db = pymysql.connect(host='bj-cynosdbmysql-grp-6afbmg9m.sql.tencentcdb.com',
                          user='user1',
                          passwd='password1',
-                            port=24356)
+                         port=24356)
 
 # 打开数据库连接
 # try:
