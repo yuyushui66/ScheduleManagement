@@ -102,7 +102,9 @@ class User:
             return -1
         _password = hashlib.sha224(_password.encode('utf-8')).hexdigest()
         try:
-            _id = next(User.UserIDCounter)
+            fr = open("src/UserID.txt", "r", encoding="utf-8")
+            _id = fr.read()
+            fr.close()
             sql = "insert into users values(" \
                   + str(_id) + ", " \
                   + "'" + _email + "', " \
@@ -112,6 +114,9 @@ class User:
             print(sql)
             User.cursor.execute(sql)
             User.db.commit()
+            fw = open("src/UserID.txt", "w", encoding="utf-8")
+            fw.write(str(int(_id) + 1))
+            fw.close()
             return id
 
         except pymysql.Error as e:
