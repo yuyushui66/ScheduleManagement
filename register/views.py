@@ -33,13 +33,13 @@ class ScheduleView(APIView):
             if [{'title': n['data[' + str(i) + '][0][]']}, {'id': n['data[' + str(i) + '][1][]']},
                 {'start': n['data[' + str(i) + '][2][0]']}, {'end': n['data[' + str(i) + '][3][0]']},
                 {'allday': n['data[' + str(i) + '][4][]']}] not in self.schedule:  # 判断重复
-                self.schedule.append([{'title': n['data[' + str(i) + '][0][]']}, {'id': n['data[' + str(i) + '][1][]']},
+                self.schedule.append([{'title': n['data[' + str(i) + '][0][]']}, {'id': '_fc'+str(len(self.schedule)+1)},
                                       {'start': n['data[' + str(i) + '][2][0]']},
                                       {'end': n['data[' + str(i) + '][3][0]']},
                                       {'allday': n['data[' + str(i) + '][4][]']}])
         for i in range(len(self.schedule)):
             print(self.schedule[i])
-
+        # {'id': n['data[' + str(i) + '][1][]']},
         # write to database.
         # sql=INSERT INTO books (name) VALUES ('MySQL Manual') ON duplicate KEY UPDATE id = id
         db, cursor = mysqlconn.mysqlConnectDefault()
