@@ -15,9 +15,14 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 import zipfile
 import sys
+
+import src.Communication
 from app import models
 from datetime import datetime
 from django.utils.translation import gettext_lazy as _
+
+import src.Communication as cm
+
 
 @csrf_exempt
 # request是一个对象，在其中封装了浏览器发送来的所有请求相关数据
@@ -32,13 +37,14 @@ def login(request):
         pwd = request.POST.get("password")
         is_keep = request.POST.get("Field")
         print(username, pwd, is_keep)
-        
+
         # 此处应该判断密码及用户在数据库中是否有匹配的项，若有则执行下面语句index.html，若无login.html
         # if username in mysql and pwd in mysql:
         if username == 123 and pwd == 123:
             return render(request, 'index.html')
         else:
             return render(request, "login.html", {"error_msg": "用户名或密码错误"})
+
 
 @csrf_exempt
 def signup(request):
@@ -48,7 +54,7 @@ def signup(request):
         return render(request, 'signup.html')
         # return HttpResponse("欢迎使用")
     else:
-        name = request.POST.get("firstname")+request.POST.get("lastname")
+        name = request.POST.get("firstname") + request.POST.get("lastname")
         email = request.POST.get("email")
         pwd = request.POST.get("password")
         re_pwd = request.POST.get("confirm_password")
@@ -57,29 +63,49 @@ def signup(request):
         # 正则判断输入是否合法，合法则插入数据库
 
         return render(request, 'signup.html')
-    
+
+
 def index(request):
-    data = [['栗佳伟', '666', 'Mon May 13 2023 00:00:00 GMT+0800 (中国标准时间)', 'Mon May 13 2023 00:00:00 GMT+0800 (中国标准时间)', 'true'],
-            ['余德水', '667', 'Mon May 14 2023 00:00:00 GMT+0800 (中国标准时间)', 'Mon May 14 2023 00:00:00 GMT+0800 (中国标准时间)', 'true'],
-            ['郑丞秀', '668', 'Mon May 15 2023 00:00:00 GMT+0800 (中国标准时间)', 'null', 'true'],
-            ['闫志杰', 'hh', 'Mon May 4 2023 16:00:00 GMT+0800 (中国标准时间)', 'Mon May 6 2023 18:00:00 GMT+0800 (中国标准时间)', 'true'],]
+    data = []
+    c = cm.Communication()
+    sql = "select * from tasks;"
+    res = c.readFromDB(sql, False)
+    NewestId = 0
+    for i in res:
+        new_result=[
+            i[1],
+            "_fc"+str(i[0]),
+        ]
+        if i[6] is None: new_result.append('null')
+        else: new_result.append(i[6].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
+        if i[7] is None: new_result.append('null')
+        else: new_result.append(i[7].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
+        new_result.append('true')
+        data.append(new_result)
+        if i[0] > NewestId: NewestId = i[0]
+
+    NewestId = NewestId + 1
+    file = open('static/js/full-calendar/id.txt','w', encoding='utf-8')
+    file.write(str(NewestId))
+    file.close()
+
+    # print(data)
     data = json.dumps(data)  # data必须是一个list
     if request.method == 'GET':
-        return render(request, 'index.html',locals()) # 以GET方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
-    else : # 以POST形式进行响应，就是前端网页中的对应位置的数据会被放置在POST中，以map的形式
-        return render(request, 'index.html',locals())
+        return render(request, 'index.html', locals())  # 以GET方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
+    else:  # 以POST形式进行响应，就是前端网页中的对应位置的数据会被放置在POST中，以map的形式
+        return render(request, 'index.html', locals())
 
 
 def state(request):
     if request.method == 'GET':
-        return render(request, 'state.html') # 以GET方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
-    else : # 以POST形式进行响应，就是前端网页中的对应位置的数据会被放置在POST中，以map的形式
+        return render(request, 'state.html')  # 以GET方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
+    else:  # 以POST形式进行响应，就是前端网页中的对应位置的数据会被放置在POST中，以map的形式
         return render(request, 'state.html')
+
 
 def reports(request):
     if request.method == 'GET':
         return render(request, 'reports.html')
-    else :
+    else:
         return render(request, 'reports.html')
-
-
