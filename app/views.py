@@ -74,7 +74,7 @@ def index(request):
     for i in res:
         new_result=[
             i[1],
-            str(i[0]),
+            "_fc"+str(i[0]),
         ]
         if i[6] is None: new_result.append('null')
         else: new_result.append(i[6].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))

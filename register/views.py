@@ -64,7 +64,7 @@ class ScheduleView(APIView):
 
             # sql = "insert into tasks values (" + id + ",'" + name + "','', 0, 0, null,'" + start + "','" + end + "',100,0,null" + ") on duplicate key update taskID = " + id
             sql = "insert into tasks values ("
-            sql += id + "," # id
+            sql += str(id) + "," # id
             sql += "'" + name + "'" + "," # taskName
             sql += "''" + "," # taskDescription
             sql += "0" + "," # taskCategory
@@ -76,7 +76,8 @@ class ScheduleView(APIView):
             else: sql += "'" + end + "'" + "," # taskEndTime
             sql += "100" + "," # taskPriority
             sql += "null" + ',' # taskNeedRemind
-            sql += "null" + ");" # taskRemindTime
+            sql += "null" + ")" # taskRemindTime
+            sql += " on duplicate key update taskID = " + str(id) + ";"
 
             print(sql)
             c = cm.Communication()
