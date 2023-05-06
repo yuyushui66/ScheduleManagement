@@ -70,18 +70,8 @@ def index(request):
     c = cm.Communication()
     sql = "select * from tasks;"
     res = c.readFromDB(sql, False)
+    NewestId = 0
     for i in res:
-        print(i)
-        # print('--------')
-        #
-        # i = str(i).strip("()").split(', ')
-        # print(i)
-        # title = i[1].strip("'")
-        # id = i[0]
-        # start = i[6][17:]
-        # print(start)
-
-        # Assuming your query result is stored in a list with variable name "result"
         new_result=[
             i[1],
             str(i[0]),
@@ -91,9 +81,14 @@ def index(request):
         if i[7] is None: new_result.append('null')
         else: new_result.append(i[7].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
         new_result.append('true')
-        print(new_result)
         data.append(new_result)
-    print(data)
+        if i[0] > NewestId: NewestId = i[0]
+
+    NewestId = NewestId + 1
+    file = open('static/js/full-calendar/id.txt','w', encoding='utf-8')
+    file.write(str(NewestId))
+
+    # print(data)
     data = json.dumps(data)  # data必须是一个list
     if request.method == 'GET':
         return render(request, 'index.html', locals())  # 以GET方式进行响应，就是在浏览器中输入URL，然后回车就会进行这个语句
