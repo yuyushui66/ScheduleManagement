@@ -30,7 +30,7 @@ class ScheduleView(APIView):
         # write to database.
         # sql=INSERT INTO books (name) VALUES ('MySQL Manual') ON duplicate KEY UPDATE id = id
         db, cursor = mysqlconn.mysqlConnectDefault()
-        for s in schedule:
+        for s in self.schedule:
             name = s[0]['title']
             id = s[1]['id'][2:]
             start = s[2]['start'].split()
