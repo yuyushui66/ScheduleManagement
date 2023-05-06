@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   
@@ -97,60 +98,60 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="http://127.0.0.1:8000/index/">
 						<i class="icon-dashboard"></i>
-						<span>Dashboard</span>
+						<span>{% translate 'Homepage' %}</span>
 					</a>	    				
 				</li>
 				
 				
 				
 				<li class="active">
-					<a href="reports.html">
+					<a href="http://127.0.0.1:8000/reports/">
 						<i class="icon-list-alt"></i>
-						<span>Reports</span>
+						<span>{% translate 'Reports' %}</span>
 					</a>    				
 				</li>
 				
 				<li>					
-					<a href="guidely.html">
+					<a href="http://127.0.0.1:8000/state/">
 						<i class="icon-facetime-video"></i>
-						<span>App Tour</span>
+						<span>{% translate 'state' %}</span>
 					</a>  									
 				</li>
                 
                 
-                <li>					
-					<a href="charts.html">
-						<i class="icon-bar-chart"></i>
-						<span>Charts</span>
-					</a>  									
-				</li>
-                
-                
-                <li>					
-					<a href="shortcodes.html">
-						<i class="icon-code"></i>
-						<span>Shortcodes</span>
-					</a>  									
-				</li>
-				
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>Drops</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                    	<li><a href="icons.html">Icons</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-                        <li><a href="pricing.html">Pricing Plans</a></li>
-                        <li><a href="login.html">Login</a></li>
-						<li><a href="signup.html">Signup</a></li>
-						<li><a href="error.html">404</a></li>
-                    </ul>    				
-				</li>
+{#                <li>					#}
+{#					<a href="charts.html">#}
+{#						<i class="icon-bar-chart"></i>#}
+{#						<span>Charts</span>#}
+{#					</a>  									#}
+{#				</li>#}
+{#                #}
+{#                #}
+{#                <li>					#}
+{#					<a href="shortcodes.html">#}
+{#						<i class="icon-code"></i>#}
+{#						<span>Shortcodes</span>#}
+{#					</a>  									#}
+{#				</li>#}
+{#				#}
+{#				<li class="dropdown">					#}
+{#					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">#}
+{#						<i class="icon-long-arrow-down"></i>#}
+{#						<span>Drops</span>#}
+{#						<b class="caret"></b>#}
+{#					</a>	#}
+{#				#}
+{#					<ul class="dropdown-menu">#}
+{#                    	<li><a href="icons.html">Icons</a></li>#}
+{#						<li><a href="faq.html">FAQ</a></li>#}
+{#                        <li><a href="pricing.html">Pricing Plans</a></li>#}
+{#                        <li><a href="login.html">Login</a></li>#}
+{#						<li><a href="signup.html">Signup</a></li>#}
+{#						<li><a href="error.html">404</a></li>#}
+{#                    </ul>    				#}
+{#				</li>#}
 			
 			</ul>
 
@@ -263,86 +264,86 @@
 
     
 
-<div class="extra">
-
-	<div class="extra-inner">
-
-		<div class="container">
-
-			<div class="row">
-                    <div class="span3">
-                        <h4>
-                            About Free Admin Template</h4>
-                        <ul>
-                            <li><a href="javascript:;">by EGrappler</a></li>
-                            <li><a href="javascript:;">Web Development Resources</a></li>
-                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Support</h4>
-                        <ul>
-                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:;">Ask a Question</a></li>
-                            <li><a href="javascript:;">Video Tutorial</a></li>
-                            <li><a href="javascript:;">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Something Legal</h4>
-                        <ul>
-                            <li><a href="javascript:;">Read License</a></li>
-                            <li><a href="javascript:;">Terms of Use</a></li>
-                            <li><a href="javascript:;">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="">Open Source jQuery Plugins</a></li>
-                            <li><a href="">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="">Free Contact Form Plugin</a></li>
-                            <li><a href="">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                </div> <!-- /row -->
-
-		</div> <!-- /container -->
-
-	</div> <!-- /extra-inner -->
-
-</div> <!-- /extra -->
+{#<div class="extra">#}
+{##}
+{#	<div class="extra-inner">#}
+{##}
+{#		<div class="container">#}
+{##}
+{#			<div class="row">#}
+{#                    <div class="span3">#}
+{#                        <h4>#}
+{#                            About Free Admin Template</h4>#}
+{#                        <ul>#}
+{#                            <li><a href="javascript:;">by EGrappler</a></li>#}
+{#                            <li><a href="javascript:;">Web Development Resources</a></li>#}
+{#                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>#}
+{#                            <li><a href="javascript:;">Free Resources and Scripts</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                    <!-- /span3 -->#}
+{#                    <div class="span3">#}
+{#                        <h4>#}
+{#                            Support</h4>#}
+{#                        <ul>#}
+{#                            <li><a href="javascript:;">Frequently Asked Questions</a></li>#}
+{#                            <li><a href="javascript:;">Ask a Question</a></li>#}
+{#                            <li><a href="javascript:;">Video Tutorial</a></li>#}
+{#                            <li><a href="javascript:;">Feedback</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                    <!-- /span3 -->#}
+{#                    <div class="span3">#}
+{#                        <h4>#}
+{#                            Something Legal</h4>#}
+{#                        <ul>#}
+{#                            <li><a href="javascript:;">Read License</a></li>#}
+{#                            <li><a href="javascript:;">Terms of Use</a></li>#}
+{#                            <li><a href="javascript:;">Privacy Policy</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                    <!-- /span3 -->#}
+{#                    <div class="span3">#}
+{#                        <h4>#}
+{#                            Open Source jQuery Plugins</h4>#}
+{#                        <ul>#}
+{#                            <li><a href="">Open Source jQuery Plugins</a></li>#}
+{#                            <li><a href="">HTML5 Responsive Tempaltes</a></li>#}
+{#                            <li><a href="">Free Contact Form Plugin</a></li>#}
+{#                            <li><a href="">Flat UI PSD</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                    <!-- /span3 -->#}
+{#                </div> <!-- /row -->#}
+{##}
+{#		</div> <!-- /container -->#}
+{##}
+{#	</div> <!-- /extra-inner -->#}
+{##}
+{#</div> <!-- /extra -->#}
 
 
     
     
-<div class="footer">
-	
-	<div class="footer-inner">
-		
-		<div class="container">
-			
-			<div class="row">
-				
-    			<div class="span12">
-    				&copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.
-    			</div> <!-- /span12 -->
-    			
-    		</div> <!-- /row -->
-    		
-		</div> <!-- /container -->
-		
-	</div> <!-- /footer-inner -->
-	
-</div> <!-- /footer -->
+{#<div class="footer">#}
+{#	#}
+{#	<div class="footer-inner">#}
+{#		#}
+{#		<div class="container">#}
+{#			#}
+{#			<div class="row">#}
+{#				#}
+{#    			<div class="span12">#}
+{#    				&copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.#}
+{#    			</div> <!-- /span12 -->#}
+{#    			#}
+{#    		</div> <!-- /row -->#}
+{#    		#}
+{#		</div> <!-- /container -->#}
+{#		#}
+{#	</div> <!-- /footer-inner -->#}
+{#	#}
+{#</div> <!-- /footer -->#}
     
 
 <script src="/static/js/jquery-1.7.2.min.js"></script>
