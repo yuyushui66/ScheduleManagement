@@ -10,16 +10,16 @@ import hashlib
 
 class UserStatus(Enum):
     LOGGED_IN = 0
-    LOGGED_OUT = 1
-    BANNED = 2
-
 
 class User:
-    UserIDCounter = count(0)
+    BANNED = 2
+
 
     def __init__(self, _id: int, _name: str = "User", _email: str = "", _avatar: str = "",
                  _password: str = hashlib.sha224("000000"),
                  _status=UserStatus.LOGGED_OUT):
+        LOGGED_OUT = 1
+        UserIDCounter = count(0)
         self.id = _id
         self.name = _name
         self.email = _email
