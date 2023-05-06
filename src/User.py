@@ -55,7 +55,7 @@ class User:
         self.avatar = avatar
 
     def setPassword(self, password: str):
-        self.password = hashlib.sha224(password).hexdigest()
+        self.password = hashlib.sha224(password.encode('utf-8')).hexdigest()
 
     # other functions
     db, cursor = mysqlConnectDefault()
@@ -64,7 +64,7 @@ class User:
         sql = "select password from users where id = " + str(id)
         User.cursor.execute(sql)
         pwd = User.cursor.fetchall()
-        _password = hashlib.sha224(_password).hexdigest()
+        _password = hashlib.sha224(_password.encode('utf-8')).hexdigest()
         if pwd == _password:
             self.status = UserStatus.LOGGED_IN
             return True
@@ -85,7 +85,7 @@ class User:
             return False
 
     @staticmethod
-    def register(_name, _email, _password):
+    def register(_name, _email, _password:str):
         """
         desc: This function is used to register a new user.
         :(1) check if the email is duplicated
@@ -100,14 +100,15 @@ class User:
         """
         if User.isDuplicatedEmail(_email):
             return -1
-        _password = hashlib.sha224(_password).hexdigest()
+        _password = hashlib.sha224(_password.encode('utf-8')).hexdigest()
         try:
             _id = next(User.UserIDCounter)
             sql = "insert into users values(" \
                   + str(_id) + ", " \
-                  + "'" + _name + "', " \
                   + "'" + _email + "', " \
-                  + "'" + str(_password) + "', " + ");"
+                  + "'" + str(_password) + "', " \
+                  + "'" + _name + "', "\
+                  + "0);"
             print(sql)
             User.cursor.execute(sql)
             User.db.commit()
@@ -124,7 +125,7 @@ class User:
         User.db.commit()
 
     def update(self, _name, _email, _password, _birthDate):
-        _password = hashlib.sha224(_password).hexdigest()
+        _password = hashlib.sha224(_password.encode('utf-8')).hexdigest()
         sql = "update users set name = " + _name + ", email = " + _email + ", password = " + str(
             _password) + " where id = " + str(self.id)
         User.cursor.execute(sql)
