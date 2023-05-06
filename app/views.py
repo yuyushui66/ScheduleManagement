@@ -87,6 +87,7 @@ def index(request):
     NewestId = NewestId + 1
     file = open('static/js/full-calendar/id.txt','w', encoding='utf-8')
     file.write(str(NewestId))
+    file.close()
 
     # print(data)
     data = json.dumps(data)  # data必须是一个list
