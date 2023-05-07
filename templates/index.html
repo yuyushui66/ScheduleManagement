@@ -25,7 +25,7 @@
     <div class="navbar-inner">
         <div class="container"><a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
                 class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a
-                class="brand" href="index.html">{% translate 'Schedule Management' %}</a>
+                class="brand" href="http://127.0.0.1:8000/index/">{% translate 'Schedule Management' %}</a>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -36,7 +36,7 @@
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i> by EGrappler <b class="caret"></b></a>
+                            class="icon-user"></i>{% translate 'by EGrappler' %}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:;">{% translate 'Profile' %}</a></li>
                             <li><a href="javascript:;">{% translate 'Logout' %}</a></li>
@@ -88,15 +88,15 @@
                 <div class="span12">
                     <div class="widget widget-nopad">
                         <div class="widget-header"><i class="icon-list-alt"></i>
-                            <h3> Today's Stats</h3>
+                            <h3>{% translate "Today's Stats" %}</h3>
                         </div>
                         <!-- /widget-header -->
                         <div class="widget-content">
                             <div class="widget big-stats-container">
                                 <div class="widget-content">
-                                    <h6 class="bigstats">A fully responsive premium quality admin template built on
-                                        Twitter Bootstrap by <a href="http://www.by EGrappler" target="_blank">by
-                                            EGrappler</a>. These are some dummy lines to fill the area.</h6>
+{#                                    <h6 class="bigstats">A fully responsive premium quality admin template built on#}
+{#                                        Twitter Bootstrap by <a href="http://www.by EGrappler" target="_blank">by#}
+{#                                            EGrappler</a>. These are some dummy lines to fill the area.</h6>#}
                                     <div id="big_stats" class="cf">
                                         <div class="stat"><i class="icon-anchor"></i> <span class="value">851</span>
                                         </div>
@@ -142,19 +142,19 @@
                                 <label class="input-group-text" for="inputGroupSelect01">类别</label>
                             </div>
                             <select class="span4_1" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
+                                <option selected>{% translate 'Choose' %}...</option>
                                 <option value="1">课内学习</option>
                                 <option value="2">课外学习</option>
                                 <option value="3">游玩</option>
                             </select>
                             <select class="span4_1" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
+                                <option selected>{% translate 'Choose' %}...</option>
                                 <option value="1">课内学习</option>
                                 <option value="2">课外学习</option>
                                 <option value="3">游玩</option>
                             </select>
                             <select class="span4_1" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
+                                <option selected>{% translate 'Choose' %}...</option>
                                 <option value="1">课内学习</option>
                                 <option value="2">课外学习</option>
                                 <option value="3">游玩</option>

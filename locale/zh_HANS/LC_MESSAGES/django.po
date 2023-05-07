@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-06 18:20+0800\n"
+"POT-Creation-Date: 2023-05-07 10:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,32 +26,43 @@ msgid "Simplified Chinese"
 msgstr ""
 
 #: .\templates\index.html:6 .\templates\index.html:28
-#: .\templates\login.html:39 .\templates\signup.html:38
-#: .\templates\state.html:54
+#: .\templates\login.html:39 .\templates\reports.html:44
+#: .\templates\signup.html:38 .\templates\state.html:54
 msgid "Schedule Management"
 msgstr "日程管理"
 
-#: .\templates\index.html:32 .\templates\state.html:62
+#: .\templates\index.html:32 .\templates\reports.html:52
+#: .\templates\state.html:62
 msgid " Account "
 msgstr "账户"
 
-#: .\templates\index.html:34
+#: .\templates\index.html:34 .\templates\reports.html:57
+#: .\templates\state.html:67
 msgid "Settings"
 msgstr "设置"
 
-#: .\templates\index.html:35
+#: .\templates\index.html:35 .\templates\reports.html:58
+#: .\templates\state.html:68
 msgid "Help"
 msgstr "帮助"
 
-#: .\templates\index.html:41
+#: .\templates\index.html:39 .\templates\reports.html:65
+#: .\templates\state.html:75
+msgid "by EGrappler"
+msgstr "我"
+
+#: .\templates\index.html:41 .\templates\reports.html:70
+#: .\templates\state.html:80
 msgid "Profile"
 msgstr "账户信息"
 
-#: .\templates\index.html:42
+#: .\templates\index.html:42 .\templates\reports.html:71
+#: .\templates\state.html:81
 msgid "Logout"
 msgstr "退出登录"
 
-#: .\templates\index.html:47
+#: .\templates\index.html:47 .\templates\reports.html:77
+#: .\templates\state.html:87
 msgid "Search"
 msgstr "搜索"
 
@@ -60,8 +71,8 @@ msgstr "搜索"
 msgid "Homepage"
 msgstr "主页"
 
-#: .\templates\index.html:62 .\templates\reports.html:112
-#: .\templates\state.html:118
+#: .\templates\index.html:62 .\templates\reports.html:7
+#: .\templates\reports.html:112 .\templates\state.html:118
 msgid "Reports"
 msgstr "统计"
 
@@ -69,6 +80,15 @@ msgstr "统计"
 #: .\templates\state.html:8 .\templates\state.html:125
 msgid "state"
 msgstr "状态"
+
+#: .\templates\index.html:91
+msgid "Today's Stats"
+msgstr "今日状态"
+
+#: .\templates\index.html:145 .\templates\index.html:151
+#: .\templates\index.html:157
+msgid "Choose"
+msgstr "选择"
 
 #: .\templates\login.html:8
 msgid "Login"
@@ -87,8 +107,10 @@ msgid "Please provide your details"
 msgstr "请填写您的信息"
 
 #: .\templates\login.html:84
-msgid "Username"
-msgstr "用户名"
+#, fuzzy
+#| msgid "Email"
+msgid "email"
+msgstr "邮箱"
 
 #: .\templates\login.html:90 .\templates\signup.html:97
 msgid "Password"
@@ -105,6 +127,28 @@ msgstr "登录"
 #: .\templates\login.html:118
 msgid "Reset Password"
 msgstr "重置密码"
+
+#: .\templates\reports.html:179
+msgid "Vizitor"
+msgstr "访客"
+
+#: .\templates\reports.html:185
+msgid "Likes"
+msgstr "点赞"
+
+#: .\templates\reports.html:191
+msgid "Orders"
+msgstr "评论"
+
+#: .\templates\reports.html:218
+#, fuzzy
+#| msgid "Today's Stats"
+msgid "Some Stats"
+msgstr "时间统计"
+
+#: .\templates\reports.html:239
+msgid "Another Chart"
+msgstr "任务完成统计"
 
 #: .\templates\signup.html:7
 msgid "Signup"
@@ -158,7 +202,39 @@ msgstr "已有帐户？"
 msgid "Login to your account"
 msgstr "登录"
 
+#: .\templates\state.html:199
+msgid "Task Ready"
+msgstr "未完成"
+
+#: .\templates\state.html:250
+msgid "In Progress"
+msgstr "我的一天"
+
+#: .\templates\state.html:318
+msgid "Needs Review"
+msgstr "重复任务"
+
+#: .\templates\state.html:368
+msgid "Done"
+msgstr "已完成"
+
+#: .\templates\state.html:441
+msgid "Recent Activity"
+msgstr "消息"
+
+#, fuzzy
+#~| msgid "In Progress"
+#~ msgid "Task Progress"
+#~ msgstr "我的一天"
+
+#, fuzzy
+#~ msgid "Homepage Design"
+#~ msgstr "123"
+
 #, fuzzy
 #~| msgid " Account "
 #~ msgid "Account"
 #~ msgstr "账户"
+
+#~ msgid "Username"
+#~ msgstr "用户名"
