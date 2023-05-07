@@ -124,7 +124,10 @@ def index(request):
             new_result.append('null')
         else:
             new_result.append(i[7].strftime("%a %b %d %Y %H:%M:%S GMT+0800 (中国标准时间)"))
-        new_result.append('true')
+        if i[-1] == 'true':
+            new_result.append('true')
+        else:
+            new_result.append('false')
         data.append(new_result)
         if i[0] > NewestId: NewestId = i[0]
 

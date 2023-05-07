@@ -76,7 +76,11 @@ class ScheduleView(APIView):
             else: sql += "'" + end + "'" + "," # taskEndTime
             sql += "100" + "," # taskPriority
             sql += "null" + ',' # taskNeedRemind
-            sql += "null" + ")" # taskRemindTime
+            sql += "null" + "," # taskRemindTime
+            if s[4]['allday'] == 'true':
+                sql += "true" + ')'
+            else:
+                sql += "false" + ')'
             sql += " on duplicate key update taskID = " + str(id) + ";"
 
             print(sql)
